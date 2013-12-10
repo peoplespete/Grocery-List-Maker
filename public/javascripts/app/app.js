@@ -15,6 +15,7 @@ function initialize(){
   $('#searchButton').on('click',clickSearch);
   $('#searchMatches').on('click','li',clickRecipe);
   $('#printButton').on('click',clickPrint);
+  initializeGroceryList();
 }
 
 function clickSearch(){
@@ -74,7 +75,13 @@ function clickPrint(){
   window.open('/groceryList','_blank')
 
 
-
 }
 
 ///////////////////////////////////////////////////////////////////////////
+
+function initializeGroceryList(){
+  // initialize
+
+}
+
+//GET OVER IT YOU ARE GOING TO HAVE TO STORE THE INFO IN A DB...
