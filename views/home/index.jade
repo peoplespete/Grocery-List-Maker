@@ -7,6 +7,17 @@ block content
       input#searchTerm(type= "text", autofocus= true, placeholder= "Stewed Cabbage")
       button#searchButton.button.radius.small Search
   .row
+    .small-8.columns
+      ul#searchMatches
+      #searchAd
+    .small-4.columns
+      ol#chosenRecipes
+      #chosenAd
+      input#printButton.button.small.success.radius.hidden(type="button", value ="Print List and Open Links")
+  .row
     .small-12.columns
-      ul#recipes
+      a(href="http://www.yummly.com/recipes")
+        span.subheader Recipes powered by
+        img(src="http://static.yummly.com/api-logo.png" alt="Yummly")
+
 
