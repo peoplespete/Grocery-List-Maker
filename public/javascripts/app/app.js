@@ -35,7 +35,7 @@ function clickSearch(){
         }else{
           pic = '/images/item-placeholder.png';
         }
-        var $li = $('<li data_id = ' + data.matches[i].id + '>' + '<img src=' + pic + '>' + data.matches[i].recipeName + '</li>');
+        var $li = $('<li data_id = ' + data.matches[i].id + '>' + '<img src=' + pic + '>' + '<div>' + data.matches[i].recipeName + '</div>' + '</li>');
         $('#searchMatches').append($li);
       }
       matches = data.matches;
@@ -65,7 +65,7 @@ function clickRecipe(){
       var $clickedRecipe = $('<li>');
       $clickedRecipe.attr('data-id',clickedRecipe.id);
       var sz = "90";
-      $clickedRecipe.append('<img src=' + recipeResponse.imageUrlsBySize[sz] + '>' + '<a href=' + clickedRecipe.link + ' target="_blank">' + clickedRecipe.name + '</a>');
+      $clickedRecipe.append('<a href=' + clickedRecipe.link + ' target="_blank"' + '>' + '<img src=' + recipeResponse.imageUrlsBySize[sz] + '>' + '</a>' + '<a href=' + clickedRecipe.link + ' target="_blank">' + clickedRecipe.name + '</a>');
  // add delete button for each item you put in
       var $delete = $('<input type="button" value="x" class="button tiny radius alert" >');
       $clickedRecipe.append($delete);

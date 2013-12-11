@@ -66,8 +66,18 @@ body{
 #searchMatches, #chosenRecipes{
   margin: 20px;
   li{
+    clear: both;
     &:hover{
-    color: rgba(70,70,70,1);
+      color: rgba(70,70,70,1);
+      img{
+        -webkit-box-shadow: 0 0 .4em .4em rgba(3, 182, 255, 0.8);
+        -moz-box-shadow: 0 0 .4em .4em rgba(3, 182, 255, 0.8);
+        box-shadow: 0 0 .4em .4em rgba(3, 182, 255, 0.8);
+      }
+    }
+    div{
+      padding-top: 10px;
+      vertical-align: center;
     }
   }
 }
@@ -79,9 +89,14 @@ body{
   // }
   img{
     margin: 5px 10px;
+    float:left;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+    -webkit-box-shadow: 0 0 .4em .4em #333;
+    -moz-box-shadow: 0 0 .4em .4em #333;
+    box-shadow: 0 0 .4em .4em #333;
+
   }
   list-style-type: none;
   font-size: 1.3em;
@@ -90,9 +105,6 @@ body{
 #chosenRecipes{
   a{
     color: #000;
-    &:hover{
-      color:rgba(70,70,70,1);
-    }
   }
 }
 
@@ -109,6 +121,10 @@ body{
   margin-top: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+#find{
+  padding-bottom: 60px;
 }
 
 
