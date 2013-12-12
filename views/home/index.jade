@@ -1,30 +1,32 @@
 extends ../template/layout
 
 block content
-  #content
-    .row
-      .small-6.columns
-        #find
-          h4 Find a Recipe
-          input#searchTerm(type= "text", autofocus= true, placeholder= "Stewed Cabbage")
-          input#searchButton.button.radius.small.success(type="button", value= "Search")
-          ul#searchMatches
-          #searchAd
-      .small-6.columns
-        #choose.hidden
-          h4 Your Recipes
-          ul#chosenRecipes
-          #chosenAd
-          input#openLinksButton.button.small.success.radius.hidden(type="button", value ="Open Recipe Links")
-    .row
-      .small-12.columns
-        #list.hidden
-          h4 Grocery List
-          ul#groceryList
-    .row
-      .small-12.columns
-        a(href="http://www.yummly.com/recipes")
-          span.subheader Recipes powered by
-          img(src="http://static.yummly.com/api-logo.png" alt="Yummly")
+  .row
+    #content
+      .row#firstRow
+        .small-6.columns
+          #find
+            h4 Find a Recipe
+            #search
+              input#searchTerm(type= "text", autofocus= true, placeholder= "Stewed Cabbage")
+              input#searchButton.button.radius.small.success(type="button", value= "Search")
+            ul#searchMatches.hidden
+          #list.hidden
+            h4 Grocery List
+            ul#groceryList
+        .small-6.columns
+          #choose.hidden
+            h4 Your Recipes
+            ul#chosenRecipes
+            #chosenAd
+            .row
+              .small-offset-3.small-6.columns
+                input#openLinksButton.button.small.success.radius.expand.hidden(type="button", value ="Open Recipe Links")
+              .small-3.columns
+          a(href="http://www.yummly.com/recipes" target="_blank")
+            #attribution
+              span.subheader Recipes powered by
+              img#logo(src="/images/yummly.png" alt="Yummly")
+      .row#spacer
 
 

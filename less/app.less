@@ -6,6 +6,7 @@ body{
   h1,h2,h3,h4,h5,h6{
     font-family: 'Architects Daughter', cursive;
     text-decoration: underline;
+    text-align: center;
   }
   background-color: @base;
   background-image: url('/images/grocery-background.jpg');
@@ -14,24 +15,33 @@ body{
   background-size: 100%;
 }
 
-.row{
+#content{
+  margin: 50px 0;
+  padding: 0 20px;
   background-color: rgba(3, 182, 255, 0.8);
-  // background-color: #f3ff3ebc;
-  &:first-child{
-    margin-top: 50px;
-    -webkit-border-radius: 20px 20px 0px 0px;
-    -moz-border-radius: 20px 20px 0px 0px;
-    border-radius: 20px 20px 0px 0px;
-  }
-  &:last-child{
-    margin-bottom: 50px;
-    -webkit-border-radius: 0px 0px 20px 20px;
-    -moz-border-radius: 0px 0px 20px 20px;
-    border-radius: 0px 0px 20px 20px;
-  }
+  -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
+
+// .row{
+//   background-color: rgba(3, 182, 255, 0.8);
+//   // background-color: #f3ff3ebc;
+//   &:first-child{
+//     margin-top: 50px;
+//     -webkit-border-radius: 20px 20px 0px 0px;
+//     -moz-border-radius: 20px 20px 0px 0px;
+//     border-radius: 20px 20px 0px 0px;
+//   }
+//   &:last-child{
+//     margin-bottom: 50px;
+//     -webkit-border-radius: 0px 0px 20px 20px;
+//     -moz-border-radius: 0px 0px 20px 20px;
+//     border-radius: 0px 0px 20px 20px;
+//   }
+// }
 #searchTerm{
-  width: 70%;
+  width: 60%;
 }
 
 #searchTerm, #searchButton{
@@ -44,21 +54,23 @@ body{
 
 #groceryList{
   margin: 20px;
-  list-style-type: square;
+  list-style-type: none;
   li{
     .match{
-      color: green;
       font-size: 1.4em;
     }
     .amount{
-      color:red;
       margin-left: 20px;
       font-size: 1em;
     }
+    // .writing{
+    //   float:right;
+    // }
   }
   .alert{
-    // width: .5em;
-    // height: .5em;
+    // float:left;
+    // clear:both;
+    margin-right: 5px;
   }
 }
 
@@ -70,9 +82,9 @@ body{
     &:hover{
       color: rgba(70,70,70,1);
       img{
-        -webkit-box-shadow: 0 0 .4em .4em rgba(3, 182, 255, 0.8);
-        -moz-box-shadow: 0 0 .4em .4em rgba(3, 182, 255, 0.8);
-        box-shadow: 0 0 .4em .4em rgba(3, 182, 255, 0.8);
+        -webkit-box-shadow: 0 0 .2em .2em rgba(3, 182, 255, 0.8);
+        -moz-box-shadow: 0 0 .2em .2em rgba(3, 182, 255, 0.8);
+        box-shadow: 0 0 .2em .2em rgba(3, 182, 255, 0.8);
       }
     }
     div{
@@ -93,31 +105,35 @@ body{
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    -webkit-box-shadow: 0 0 .4em .4em #333;
-    -moz-box-shadow: 0 0 .4em .4em #333;
-    box-shadow: 0 0 .4em .4em #333;
+    -webkit-box-shadow: 0 0 .2em .2em #333;
+    -moz-box-shadow: 0 0 .2em .2em #333;
+    box-shadow: 0 0 .2em .2em #333;
 
   }
   list-style-type: none;
   font-size: 1.3em;
 }
 
+
 #chosenRecipes{
   a{
     color: #000;
   }
+  .alert{
+    margin-left: 5px;
+  }
 }
 
-.hidden{
-  display: none;
+#openLinksButton{
+  margin-top: 20px;
 }
 
-#find, #choose, #list{
+#find, #attribution, #choose, #list{
   background-color: rgba(250, 250, 250, 0.8);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  padding-left: 20px;
+  // padding-left: 20px;
   margin-top: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -125,7 +141,32 @@ body{
 
 #find{
   padding-bottom: 60px;
+  text-align: center;
 }
 
+#spacer{
+  min-height: 20px;
+}
 
+#logo{
+  width: 300px;
+}
+
+#attribution{
+  font-size: 2em;
+  text-align: center;
+}
+
+.hidden{
+  display: none;
+  height: 0;
+  margin: 0;
+}
+
+#search{
+  margin-top: 35px;
+  margin-bottom: -29px;
+  font-size: 1.2em;
+
+}
 

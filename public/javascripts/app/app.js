@@ -32,19 +32,19 @@ function clickSearch(){
         var pic;
         if(data.matches[i].imageUrlsBySize){
           pic = data.matches[i].imageUrlsBySize[sz];
-        }else{
-          pic = '/images/item-placeholder.png';
+          var $li = $('<li data_id = ' + data.matches[i].id + '>' + '<img src=' + pic + '>' + '<div>' + data.matches[i].recipeName + '</div>' + '</li>');
+          $('#searchMatches').append($li);
         }
-        var $li = $('<li data_id = ' + data.matches[i].id + '>' + '<img src=' + pic + '>' + '<div>' + data.matches[i].recipeName + '</div>' + '</li>');
-        $('#searchMatches').append($li);
       }
       matches = data.matches;
+      $('#searchMatches').show().removeClass('hidden');
       // $('#searchAd').append(data.attribution.html);
     }
   });
 }
 
 function clickRecipe(){
+  $('#searchMatches').hide().addClass('hidden');
   $('#list').show().removeClass('hidden');
   $('#choose').show().removeClass('hidden');
  // push ingredients to shopping list from matches array local
@@ -62,15 +62,17 @@ function clickRecipe(){
       clickedRecipe.link = data.source.sourceRecipeUrl;
       clickedRecipe.measuredIngredients = data.ingredientLines;
       recipes.push(clickedRecipe);
+      // I COULD SORT HERE SO AND EMPTY AND PRINT ALL OUT SO THAT CHOSENRECIPES IS ALPHABETIZED
+      // recipes = _.sortBy(recipes, 'name');
+      var sz = "90";
       var $clickedRecipe = $('<li>');
       $clickedRecipe.attr('data-id',clickedRecipe.id);
-      var sz = "90";
+
       $clickedRecipe.append('<a href=' + clickedRecipe.link + ' target="_blank"' + '>' + '<img src=' + recipeResponse.imageUrlsBySize[sz] + '>' + '</a>' + '<a href=' + clickedRecipe.link + ' target="_blank">' + clickedRecipe.name + '</a>');
  // add delete button for each item you put in
       var $delete = $('<input type="button" value="x" class="button tiny radius alert" >');
       $clickedRecipe.append($delete);
       $('#chosenRecipes').append($clickedRecipe);
-      // $('#chosenAd').append(data.attribution.html);
       $('#searchMatches').empty();
       $('#searchTerm').focus();
       $('#openLinksButton').show().removeClass('hidden');
@@ -132,24 +134,30 @@ function clickPrint(){
           }
         });
         list.push(item);
+        // var list = [{'ingredient': 'wheat'},{'ingredient': 'a'},{'ingredient': 'f'},];
+        list = _.sortBy(list, 'ingredient');
+        // console.log(list);
       }
     });
   });
   _.forEach(list, function(item){
       var $li = $('<li>');
-      var $ingredient = $('<div>');
+      var $ingredient = $('<span>');
       $ingredient.text(item.ingredient);
       $ingredient.addClass('match');
-      var $amounts = $('<div>');
+      var $amounts = $('<span>');
+      $amounts.addClass('amount');
       _.forEach(item.amounts, function(a){
-        var $amount = $('<div>');
-        $amount.addClass('amount');
-        $amount.text(a);
+        var $amount = $('<span>');
+        $amount.text('{' + a + '}');
         $amounts.append($amount);
       });
 
       var $delete = $('<input type="button" value="x" class="button tiny radius alert" >');
-      $li.append($ingredient, $amounts, $delete);
+      var $writing = $('<span>');
+      $writing.addClass('writing');
+      $writing.append($ingredient, $amounts);
+      $li.append($delete, $writing);
       $('#groceryList').append($li);
   });
 }
@@ -162,6 +170,9 @@ function clickOpenLinks(){
 
 function clickDeleteIngredient(){
   // remove from html
+  if($(this).closest('li').siblings().length == 0){
+    $('#list').hide().addClass('hidden');
+  }
   $(this).closest('li').remove();
 }
 ///////////////////////////////////////////////////////////////////////////
