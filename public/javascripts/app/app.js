@@ -18,14 +18,17 @@ function initialize(){
   $('#openLinksButton').on('click',clickOpenLinks);
   $('#chosenRecipes').on('click','.alert',clickDeleteChosenRecipe);
   $('#groceryList').on('click','.alert', clickDeleteIngredient);
+  $('body').on('keydown', keypressMove);
 }
 
 function clickSearch(){
+  $('body').off('keydown');
   matches = [];
   $('#searchMatches').empty();
   var searchTerm = getValue('#searchTerm');
   searchTerm = searchTerm.replace(/ /g, '+');
   var url = apiBase + "/recipes?" + authentication + "&q=" + searchTerm;
+  var goodMatches = false;
   $.ajax({type: "GET", url: url, dataType: "jsonp", success: function (data) {
       for(var i = 0 ; i < data.matches.length; i++){
         var sz = "90";
@@ -34,10 +37,18 @@ function clickSearch(){
           pic = data.matches[i].imageUrlsBySize[sz];
           var $li = $('<li data_id = ' + data.matches[i].id + '>' + '<img src=' + pic + '>' + '<div>' + data.matches[i].recipeName + '</div>' + '</li>');
           $('#searchMatches').append($li);
+          goodMatches = true;
         }
       }
       matches = data.matches;
-      $('#searchMatches').show().removeClass('hidden');
+      if(goodMatches){
+        $('#searchMatches').show().removeClass('hidden');
+      }
+      else{
+        alert('Sorry no matches found.  Please try a different search.');
+        $('#searchTerm').focus();
+        $('body').on('keydown', keypressMove);
+      }
       // $('#searchAd').append(data.attribution.html);
     }
   });
@@ -75,6 +86,7 @@ function clickRecipe(){
       $('#chosenRecipes').append($clickedRecipe);
       $('#searchMatches').empty();
       $('#searchTerm').focus();
+      $('body').on('keydown', keypressMove);
       $('#openLinksButton').show().removeClass('hidden');
       clickPrint();
     }
@@ -95,6 +107,7 @@ function clickDeleteChosenRecipe(){
     $('#list').hide().addClass('hidden');
     $('#choose').hide().addClass('hidden');
     $('#searchTerm').focus();
+    $('body').on('keydown', keypressMove);
   }
 }
 
@@ -149,7 +162,7 @@ function clickPrint(){
       $amounts.addClass('amount');
       _.forEach(item.amounts, function(a){
         var $amount = $('<span>');
-        $amount.text('{' + a + '}');
+        $amount.text('[' + a + ']');
         $amounts.append($amount);
       });
 
@@ -176,3 +189,10 @@ function clickDeleteIngredient(){
   $(this).closest('li').remove();
 }
 ///////////////////////////////////////////////////////////////////////////
+
+
+function keypressMove(e){
+  if(e.keyCode === 13){
+    clickSearch();
+  }
+}
