@@ -22,7 +22,6 @@ function initialize(){
 }
 
 function clickSearch(){
-  $('body').off('keydown');
   matches = [];
   $('#searchMatches').empty();
   var searchTerm = getValue('#searchTerm');
@@ -43,13 +42,13 @@ function clickSearch(){
       matches = data.matches;
       if(goodMatches){
         $('#searchMatches').show().removeClass('hidden');
+        $('#searchTerm').focus();
       }
       else{
         alert('Sorry no matches found.  Please try a different search.');
         $('#searchTerm').focus();
         $('body').on('keydown', keypressMove);
       }
-      // $('#searchAd').append(data.attribution.html);
     }
   });
 }
@@ -73,8 +72,6 @@ function clickRecipe(){
       clickedRecipe.link = data.source.sourceRecipeUrl;
       clickedRecipe.measuredIngredients = data.ingredientLines;
       recipes.push(clickedRecipe);
-      // I COULD SORT HERE SO AND EMPTY AND PRINT ALL OUT SO THAT CHOSENRECIPES IS ALPHABETIZED
-      // recipes = _.sortBy(recipes, 'name');
       var sz = "90";
       var $clickedRecipe = $('<li>');
       $clickedRecipe.attr('data-id',clickedRecipe.id);
@@ -112,8 +109,6 @@ function clickDeleteChosenRecipe(){
 }
 
 function clickPrint(){
-  //how to fix the unsalted butter getting picked up by both unsalted butter and salt bug?
-
   var list = [];
   $('#groceryList').empty();
   _.forEach(recipes, function(r){
@@ -149,7 +144,6 @@ function clickPrint(){
         list.push(item);
         // var list = [{'ingredient': 'wheat'},{'ingredient': 'a'},{'ingredient': 'f'},];
         list = _.sortBy(list, 'ingredient');
-        // console.log(list);
       }
     });
   });
@@ -190,9 +184,8 @@ function clickDeleteIngredient(){
 }
 ///////////////////////////////////////////////////////////////////////////
 
-
 function keypressMove(e){
-  if(e.keyCode === 13){
+  if(e.keyCode === 13 && $('#searchTerm').is(':focus')){
     clickSearch();
   }
 }
