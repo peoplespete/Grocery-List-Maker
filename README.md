@@ -13,11 +13,11 @@ This web app is designed for anyone who shops for food.
 
 1. Type in the name of a food you would like to cook.
 2. Hit enter or click `search`
-3. Choose one of search results by clicking on it.  (If your search didn't produce any foods you were interested in, jump back to step 2.
+3. Choose one of search results by clicking on it.  (If your search didn't produce any foods you were interested in, jump back to step 2.)
 4. Repeat steps 2 and 3 until you have all the recipes you'd like.
 5. Now look through the Grocery List and click the `x` on any items that you already have in your pantry.
-6. Shop at your favorite store with the list.
-7. Click on the `Open Recipe Links` button to see all your recipe instructions.  (If you would only like to see one set of recipe instructions at a time, simply click on the recipe you'd like to see instructions for and click on it in the Your Recipes section.)
+6. Shop at your favorite store with the grocery list.
+7. Click on the `Open Recipe Links` button to see all your recipe instructions.  (If you would only like to see one set of recipe instructions at a time, simply click on the recipe in the Your Recipes section.)
 
 ![alt tag](/public/images/grocery-background.jpg)
 
