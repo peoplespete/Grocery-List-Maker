@@ -3,7 +3,7 @@ var path = require('path');
 var less = require('express-less');
 
 exports.initialize = function(app, RedisStore){
-  app.set('port', process.env.PORT || 3001);
+  app.set('port', process.env.PORT || 3000);
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'jade');
   // app.use(express.favicon());
