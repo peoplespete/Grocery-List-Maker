@@ -11,7 +11,7 @@ Setup
 ------
 Run from your command line:
 ```
-git clone <CLONE_URL_FROM_GITHUB_PAGE>
+git clone https://github.com/peoplespete/GroceryListMaker.git
 cd GroceryListMaker
 npm install
 ```
