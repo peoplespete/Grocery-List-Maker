@@ -7,6 +7,24 @@ Why?
 -----------
 Having recently become a vegetarian, I want to use some new recipes.  The frustrating thing is that when I want to make something from a recipe, I am inevitably missing some random ingredient like condensed milk.  This program allows you to choose a few recipes to use in the coming week and then shop for the ingredients you will need to purchase.
 
+Setup
+_______
+For this node.js app, do the following to install.
+***
+git clone <CLONE_URL_FROM_GITHUB_PAGE>
+npm install
+***
+If the npm install will not run without errors try:
+***
+sudo npm install
+***
+If you do not have supervisor, (install supervisor)[https://github.com/isaacs/node-supervisor].
+To run the app at localhost:XXXX
+***
+supervisor app
+***
+
+
 How To Use
 -----------
 This web app is designed for anyone who shops for food.
