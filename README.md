@@ -9,9 +9,10 @@ Having recently become a vegetarian, I want to use some new recipes.  The frustr
 
 Setup
 ------
-Run from your command line
+Run from your command line:
 ```
 git clone <CLONE_URL_FROM_GITHUB_PAGE>
+cd GroceryListMaker
 npm install
 ```
 If the npm install will not run without errors try:
