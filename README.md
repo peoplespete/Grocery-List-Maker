@@ -23,7 +23,7 @@ If you do not have supervisor, [install supervisor](https://github.com/isaacs/no
 ```
 supervisor app
 ```
-The app should now be running at localhost:XXXX
+The app should now be running at localhost:3001
 
 
 How To Use
