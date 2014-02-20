@@ -10,19 +10,19 @@ Having recently become a vegetarian, I want to use some new recipes.  The frustr
 Setup
 _______
 For this node.js app, do the following to install.
-***
+```
 git clone <CLONE_URL_FROM_GITHUB_PAGE>
 npm install
-***
+```
 If the npm install will not run without errors try:
-***
+```
 sudo npm install
-***
-If you do not have supervisor, (install supervisor)[https://github.com/isaacs/node-supervisor].
+```
+If you do not have supervisor, [install supervisor](https://github.com/isaacs/node-supervisor).
 To run the app at localhost:XXXX
-***
+```
 supervisor app
-***
+```
 
 
 How To Use
