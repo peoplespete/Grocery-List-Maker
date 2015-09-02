@@ -9,7 +9,9 @@ require('require-dir')('./models');
 var home = require('./routes/home');
 
 var app = express();
-var RedisStore = require('connect-redis')(express);
+var session = require('express-session')
+, RedisStore = require('connect-redis')(session);
+// var RedisStore = require('connect-redis')(express);
 mongoose.connect('mongodb://localhost/name-of-database');
 
 // configure express
