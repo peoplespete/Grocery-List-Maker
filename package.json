@@ -6,8 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "*",
-    "express-session": "*",
+    "express": "3.*",
     "jade": "*",
     "express-less": "*",
     "lodash": "*",
